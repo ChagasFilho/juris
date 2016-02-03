@@ -1,0 +1,30 @@
+===Base de Dados db_juris
+
+== Estrutura da tabela cidade
+
+|------
+|Coluna|Tipo|Nulo|Predefinido
+|------
+|//**id_cidade**//|int(11)|Não|
+|nome_cid|varchar(50)|Sim|NULL
+== Extraindo dados da tabela cidade
+
+|1|Belo Horizonte
+|2|São Paulo
+== Estrutura da tabela usuario
+
+|------
+|Coluna|Tipo|Nulo|Predefinido
+|------
+|//**id_usuario**//|int(11)|Não|
+|nome|varchar(100)|Não|
+|endereco|varchar(50)|Não|
+|cpf|varchar(20)|Não|
+|email|varchar(20)|Não|
+|senha|varchar(20)|Não|
+|status|int(11)|Não|
+|nivel|int(11)|Não|
+|cidade_id_cidade|int(11)|Não|
+== Extraindo dados da tabela usuario
+
+|1|Usuario|Rua São Paulo, 1890|11111111111|email@email.com|12345|1|1|1
