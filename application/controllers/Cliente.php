@@ -22,18 +22,17 @@ class Cliente extends CI_Controller {
 	public function verificar_sessao() 
 	{
 		if ($this->session->userdata('logado') == false) {
-			redirect('Dashboard/login');
+			redirect('Login');
 		}
 	}
 
 	public function index($indice = null)
 	{
 		$this->verificar_sessao();
+		
+		$this->load->model('cliente_model', 'cliente');
 
-
-		$this->db->select('*');
-
-		$dados['clientes'] = $this->db->get('cliente')->result();
+		$dados['clientes'] = $this->cliente->get_clientes();
 
 		$this->load->view('includes/html_header');
 		$this->load->view('includes/menu');
@@ -79,6 +78,8 @@ class Cliente extends CI_Controller {
 
 	public function cadastrar()
 	{
+		$this->load->model('cliente_model', 'cliente');
+
 		if ($this->cliente->cadastrar()) {
 			redirect('Cliente/1');
 		} 
@@ -89,6 +90,8 @@ class Cliente extends CI_Controller {
 
 	public function excluir($id = null)
 	{	
+		$this->load->model('cliente_model', 'cliente');
+
 		if ($this->cliente->excluir($id)) {
 			redirect('Cliente/3');
 		} 
@@ -97,9 +100,10 @@ class Cliente extends CI_Controller {
 		}
 	}
 
-
 	public function salvar_atualizacao()
 	{
+		$this->load->model('cliente_model', 'cliente');
+
 		if ($this->cliente->salvar_atualizacao()) {
 			redirect('Cliente/5');
 		} 

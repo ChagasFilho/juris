@@ -22,14 +22,14 @@ class Usuario extends CI_Controller {
 	public function verificar_sessao() 
 	{
 		if ($this->session->userdata('logado') == false) {
-			redirect('Dashboard/login');
+			redirect('Login');
 		}
 	}
 
 	public function index($indice = null)
-	{
+	{		
 		$this->verificar_sessao();
-		
+
 		$this->load->model('usuario_model', 'usuario');
 
 		$dados['usuarios'] = $this->usuario->get_usuarios();
@@ -103,8 +103,6 @@ class Usuario extends CI_Controller {
 	public function atualizar($id = null, $indice = null)
 	{
 		$this->verificar_sessao();
-
-		//$data['cidades'] = $this->db->get('cidade')->result();
 
 		$this->db->where('id_usuario', $id);
 		$data['usuario'] = $this->db->get('usuario')->result();

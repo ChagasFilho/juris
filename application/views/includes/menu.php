@@ -38,7 +38,7 @@
                         <ul class="nav nav-sidebar">
                             <li class="active"><a href="<?= base_url(); ?>index.php/Dashboard">Tela Inicial <span class="sr-only">(current)</span></a></li>
                             
-                            <li><a href="<?= base_url(); ?>index.php/Usuario">Usuários</a></li>
+                            <li><a href="<?= base_url(); ?>index.php/usuario">Usuários</a></li>
                             
                             <li><a href="<?= base_url(); ?>index.php/Cliente">Clientes</a></li>
                         </ul>
